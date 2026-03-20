@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Ярослав Каурин | 3D / BIM-портфолио</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0a0c10;
+        font-family: "Inter", sans-serif;
+        color: #eef2ff;
+        line-height: 1.5;
+        scroll-behavior: smooth;
+      }
+
+      /* modern glassmorphic + dark theme like GitHub dark */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      /* header profile section */
+      .profile-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: center;
+        margin-bottom: 3rem;
+        background: rgba(22, 27, 34, 0.7);
+        backdrop-filter: blur(4px);
+        border-radius: 2rem;
+        padding: 1.8rem 2rem;
+        border: 1px solid rgba(72, 85, 106, 0.4);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .avatar-placeholder {
+        width: 110px;
+        height: 110px;
+        background: linear-gradient(
+          135deg,
+          #2d4a6e,
+          #0f2c3f
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        font-weight: 600;
+        color: #b9e6ff;
+        border: 2px solid #3b82f6;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+      }
+
+      .profile-info h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        background: linear-gradient(
+          to right,
+          #fff,
+          #94a3b8
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .badge-student {
+        display: inline-block;
+        background: #1e2a3a;
+        padding: 0.25rem 0.8rem;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #90caf9;
+        margin-top: 0.5rem;
+      }
+
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        margin-top: 1rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        background: #11171f;
+        padding: 0.3rem 1rem;
+        border-radius: 40px;
+        transition: all 0.2s;
+        border: 1px solid #2d3748;
+        text-decoration: none;
+        color: #cbd5e6;
+      }
+
+      .contact-item i {
+        font-size: 1rem;
+        color: #3b82f6;
+      }
+
+      .contact-item:hover {
+        background: #1e2a3a;
+        color: white;
+        border-color: #3b82f6;
+        transform: translateY(-2px);
+      }
+
+      /* skills chips */
+      .skills-section {
+        margin: 2rem 0 2rem;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-left: 4px solid #3b82f6;
+        padding-left: 1rem;
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+
+      .skill-chip {
+        background: #1a2533;
+        padding: 0.4rem 1rem;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #b9e2ff;
+        border: 1px solid #2d3e54;
+        transition: 0.1s linear;
+      }
+
+      .tool-strip {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        font-size: 0.8rem;
+        color: #9aaebf;
+      }
+
+      .tool-strip span {
+        background: #0f1722;
+        padding: 0.2rem 0.8rem;
+        border-radius: 20px;
+        font-family: monospace;
+      }
+
+      /* project gallery cards */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fill,
+          minmax(340px, 1fr)
+        );
+        gap: 1.8rem;
+        margin-top: 1rem;
+      }
+
+      .project-card {
+        background: #11161e;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        border: 1px solid #26303d;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-card:hover {
+        transform: translateY(-6px);
+        border-color: #3b82f6;
+        box-shadow: 0 18px 30px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .card-preview {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        background-color: #0b1017;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 0.8rem;
+      }
+
+      .card-preview .overlay-badge {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        padding: 0.25rem 0.8rem;
+        border-radius: 30px;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        color: #e2e8f0;
+      }
+
+      .card-info {
+        padding: 1.2rem;
+      }
+
+      .card-info h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-info p {
+        font-size: 0.85rem;
+        color: #a3b3cc;
+        margin-bottom: 0.7rem;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .tech-tags span {
+        background: #1f2a36;
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        color: #8fb4d0;
+      }
+
+      .click-hint {
+        font-size: 0.7rem;
+        margin-top: 0.6rem;
+        color: #5b7c9c;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      /* modal for screenshots */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .modal-content {
+        max-width: 90vw;
+        max-height: 85vh;
+        background: #0f141c;
+        border-radius: 1.8rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #2d3a4a;
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background: #0b1018;
+        border-bottom: 1px solid #25303e;
+      }
+
+      .modal-header h3 {
+        font-weight: 600;
+      }
+
+      .close-modal {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #cbd5e1;
+        transition: 0.2s;
+      }
+
+      .close-modal:hover {
+        color: #f87171;
+      }
+
+      .modal-body {
+        overflow-y: auto;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        background: #0a0f15;
+      }
+
+      .modal-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.8rem;
+        box-shadow: 0 5px 18px black;
+      }
+
+      .screenshot-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        align-items: center;
+      }
+
+      .screenshot-gallery img {
+        max-width: 100%;
+        border-radius: 12px;
+        border: 1px solid #2c3848;
+      }
+
+      .caption {
+        font-size: 0.75rem;
+        color: #7f8fa4;
+        text-align: center;
+        margin-top: 0.3rem;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 3.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid #1f2a36;
+        font-size: 0.8rem;
+        color: #6f85a0;
+      }
+
+      @media (max-width: 700px) {
+        .profile-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- header: profile + contacts -->
+      <div class="profile-header">
+        <div
+          class="avatar-placeholder"
+          style="position: relative; overflow: hidden"
+        >
+          <img
+            src="bea86a48-2efc-5c69-8d2f-78e4d24f77f1.jpeg"
+            alt="ЯК"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            "
+          />
+        </div>
+        <div style="flex: 1">
+          <h1>Ярослав Каурин</h1>
+          <div class="badge-student">
+            <i class="fas fa-graduation-cap"></i> КГАСУ ·
+            Строительство / IT
+          </div>
+          <div class="contact-links">
+            <a
+              href="mailto:pfow22@gmail.com"
+              class="contact-item"
+              ><i class="fas fa-envelope"></i>
+              pfow22@gmail.com</a
+            >
+            <a href="tel:+79372893556" class="contact-item"
+              ><i class="fas fa-phone-alt"></i>
+              +7-937-289-35-56</a
+            >
+            <a
+              href="https://t.me/twhtg"
+              target="_blank"
+              class="contact-item"
+              ><i class="fab fa-telegram"></i> @twhtg</a
+            >
+            <a
+              href="https://www.artstation.com/sun-ya"
+              target="_blank"
+              class="contact-item"
+              ><i class="fab fa-artstation"></i>
+              ArtStation</a
+            >
+            <a
+              href="https://sketchfab.com/Yarik16"
+              target="_blank"
+              class="contact-item"
+              ><i class="fas fa-cube"></i> Sketchfab</a
+            >
+            <a
+              href="https://kwork.ru/user/yaroslav_w#portfolio-section"
+              target="_blank"
+              class="contact-item"
+              ><i class="fas fa-briefcase"></i> Kwork</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- skills + tools -->
+      <div class="skills-section">
+        <div class="section-title">
+          <i class="fas fa-code"></i> Ключевые компетенции
+        </div>
+        <div class="skills-grid">
+          <span class="skill-chip"
+            >🔷 7 лет 3D-моделирования</span
+          >
+          <span class="skill-chip">🏗️ BIM / Revit</span>
+          <span class="skill-chip"
+            >🎨 Текстурирование & UV</span
+          >
+          <span class="skill-chip"
+            >⚡ Оптимизация для realtime</span
+          >
+          <span class="skill-chip"
+            >🌐 Unreal Engine 5 / Unity</span
+          >
+          <span class="skill-chip"
+            >🖼️ Архитектурная визуализация</span
+          >
+          <span class="skill-chip"
+            >📐 Инженерная графика</span
+          >
+        </div>
+        <div class="tool-strip">
+          <span>Revit</span> <span>Blender</span>
+          <span>Substance Painter</span>
+          <span>Twinmotion</span> <span>RizomUV</span>
+          <span>Unreal 5</span> <span>Unity</span>
+          <span>Krita</span>
+        </div>
+      </div>
+
+      <!-- project gallery - portfolio works with modal screenshots -->
+      <div class="section-title" style="margin-top: 1rem">
+        <i class="fas fa-folder-open"></i> Избранные проекты
+        (нажмите на карточку → детальные скриншоты)
+      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
+
+      <footer></footer>
+    </div>
+
+    <!-- modal structure -->
+    <div id="workModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalTitle"></h3>
+          <button class="close-modal" id="closeModalBtn">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- dynamic screenshots will appear here -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // -------- projects data with embedded screenshots (base64 / placeholder + actual demo screens from your resume context)
+      // We generate high-quality mockup screenshots (realistic examples based on your resume description)
+      // Since original screenshots are not provided as files, we use creative demo images + styling, but I embed actual screenshot-like placeholders that match your resume theme
+      // but to make it realistic — we create canvas-like styled images that represent your works: wireframe, interior, residential house, BIM sheets.
+      // I will also use dataURI images generated via JS to illustrate professional works (to avoid external broken links)
+
+      // helper: generate styled screenshot image via canvas (representative previews)
+      function generatePreviewImage(
+        type,
+        width = 600,
+        height = 400,
+      ) {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        // background gradient
+        const grad = ctx.createLinearGradient(
+          0,
+          0,
+          width,
+          height,
+        );
+        grad.addColorStop(0, "#10161f");
+        grad.addColorStop(1, "#1c2633");
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, width, height);
+        ctx.strokeStyle = "#3b82f6";
+        ctx.lineWidth = 2;
+
+        if (type === "wireframe") {
+          ctx.strokeStyle = "#60a5fa";
+          ctx.fillStyle = "#94a3b8";
+          ctx.font = `bold ${Math.floor(width * 0.05)}px 'Inter'`;
+          ctx.fillText(
+            "3D WIREFRAME",
+            width * 0.1,
+            height * 0.2,
+          );
+          for (let i = 0; i < 12; i++) {
+            ctx.beginPath();
+            ctx.moveTo(width * 0.2 + i * 30, height * 0.4);
+            ctx.lineTo(width * 0.7 + i * 15, height * 0.7);
+            ctx.stroke();
+          }
+          ctx.beginPath();
+          ctx.rect(
+            width * 0.2,
+            height * 0.4,
+            width * 0.5,
+            height * 0.3,
+          );
+          ctx.stroke();
+          ctx.fillStyle = "#3b82f6";
+          ctx.fillText(
+            "📐 High-poly > lowpoly",
+            width * 0.1,
+            height * 0.8,
+          );
+        } else if (type === "interior") {
+          ctx.fillStyle = "#d9c8a9";
+          ctx.fillRect(
+            width * 0.2,
+            height * 0.5,
+            width * 0.6,
+            height * 0.3,
+          );
+          ctx.fillStyle = "#b87333";
+          ctx.fillRect(
+            width * 0.4,
+            height * 0.3,
+            width * 0.2,
+            height * 0.25,
+          );
+          ctx.fillStyle = "#e2e8f0";
+          ctx.fillRect(
+            width * 0.5,
+            height * 0.55,
+            width * 0.2,
+            height * 0.2,
+          );
+          ctx.fillStyle = "#facc15";
+          ctx.beginPath();
+          ctx.arc(
+            width * 0.75,
+            height * 0.4,
+            25,
+            0,
+            Math.PI * 2,
+          );
+          ctx.fill();
+          ctx.fillStyle = "white";
+          ctx.font = `bold ${Math.floor(width * 0.04)}px Inter`;
+          ctx.fillText(
+            "✨ Интерьер Loft",
+            width * 0.1,
+            height * 0.2,
+          );
+        } else if (type === "exterior") {
+          ctx.fillStyle = "#2c5f7a";
+          ctx.fillRect(
+            0,
+            height * 0.6,
+            width,
+            height * 0.4,
+          );
+          ctx.fillStyle = "#a67c52";
+          ctx.fillRect(
+            width * 0.3,
+            height * 0.35,
+            width * 0.4,
+            height * 0.3,
+          );
+          for (let i = 0; i < 6; i++) {
+            ctx.fillStyle = "#7e5a41";
+            ctx.fillRect(
+              width * 0.35 + i * 25,
+              height * 0.55,
+              12,
+              height * 0.1,
+            );
+          }
+          ctx.fillStyle = "#a9d6e5";
+          ctx.fillRect(width * 0.7, height * 0.45, 18, 25);
+          ctx.fillStyle = "#cbd5e1";
+          ctx.font = `italic ${Math.floor(width * 0.04)}px Inter`;
+          ctx.fillText(
+            "Жилой комплекс визуализация",
+            width * 0.1,
+            height * 0.2,
+          );
+        } else if (type === "house_project") {
+          ctx.fillStyle = "#1e3a5f";
+          ctx.fillRect(
+            0,
+            height * 0.5,
+            width,
+            height * 0.5,
+          );
+          ctx.fillStyle = "#b0c4de";
+          ctx.fillRect(
+            width * 0.25,
+            height * 0.2,
+            width * 0.5,
+            height * 0.35,
+          );
+          ctx.fillStyle = "#8b5a2b";
+          ctx.fillRect(
+            width * 0.4,
+            height * 0.45,
+            width * 0.2,
+            height * 0.2,
+          );
+          ctx.fillStyle = "#f4c542";
+          for (let i = 0; i < 3; i++) {
+            ctx.fillRect(
+              width * 0.3 + i * 70,
+              height * 0.3,
+              12,
+              25,
+            );
+          }
+          ctx.fillStyle = "#ffffff";
+          ctx.font = `bold ${Math.floor(width * 0.045)}px Inter`;
+          ctx.fillText(
+            "Индивидуальный дом",
+            width * 0.1,
+            height * 0.85,
+          );
+        } else if (type === "bim_drawings") {
+          ctx.fillStyle = "#1a2a32";
+          ctx.fillRect(0, 0, width, height);
+          ctx.strokeStyle = "#5b8caf";
+          ctx.lineWidth = 1.5;
+          for (let i = 0; i < 5; i++) {
+            ctx.strokeRect(
+              width * 0.1,
+              height * 0.1 + i * 70,
+              width * 0.8,
+              55,
+            );
+          }
+          ctx.fillStyle = "#b9e6ff";
+          ctx.font = `12px monospace`;
+          ctx.fillText(
+            "Фасад 1-5 | План этажа | Разрез 1-1",
+            width * 0.2,
+            height * 0.2,
+          );
+          ctx.fillText(
+            "BIM-документация | Revit",
+            width * 0.3,
+            height * 0.7,
+          );
+        } else {
+          ctx.fillStyle = "#1e2a36";
+          ctx.fillRect(0, 0, width, height);
+          ctx.fillStyle = "#a3c2e0";
+          ctx.font = `20px Inter`;
+          ctx.fillText(
+            "3D ассет / визуализация",
+            width * 0.2,
+            height * 0.5,
+          );
+        }
+
+        return canvas.toDataURL("image/png");
+      }
+
+      // generate multiple screenshots for each project
+      function getScreenshotsForProject(projectId) {
+        if (projectId === "wireframe") {
+          return [
+            {
+              img: "11.jpg",
+              desc: "Wireframe-модель: оптимизация топологии, UV-развертка",
+            },
+            {
+              img: "22.jpg",
+              desc: "Детализация сетки для realtime движков",
+            },
+            {
+              img: "whpng.png",
+            },
+          ];
+        } else if (projectId === "interior_exterior") {
+          return [
+            {
+              img: "sun_ya-hij-k-outside(1).jpg",
+              desc: "Интерьер гостиной: текстуры Substance Painter",
+            },
+            {
+              img: "sun_ya-house-inside(1).jpg",
+              desc: "Экстерьер: окружение и Twinmotion",
+            },
+            {
+              img: "sun_ya-house-inside(4).jpg",
+              desc: "Детальная визуализация материалов",
+            },
+          ];
+        } else if (projectId === "individual_house") {
+          return [
+            {
+              img: "indiv/Image1.png",
+              desc: "Курсовая работа: индивидуальный жилой дом (фасад)",
+            },
+            {
+              img: "indiv/изображение 1.png",
+              desc: "",
+            },
+            {
+              img: "indiv/Каурин_Ярослав_24ИС02_Вариант137_conv_3.jpeg",
+              desc: "",
+            },
+            {
+              img: "indiv/Каурин_Ярослав_24ИС02_Вариант137_conv_4.jpeg",
+              desc: "",
+            },
+            {
+              img: "indiv/Каурин_Ярослав_24ИС02_Вариант137_conv_5.jpeg",
+              desc: "",
+            },
+            {
+              img: "indiv/Каурин_Ярослав_24ИС02_Вариант137_conv_6.jpeg",
+              desc: "",
+            },
+            {
+              img: "indiv/Каурин_Ярослав_24ИС02_Вариант137_conv_7.jpeg",
+              desc: "",
+            },
+          ];
+        } else if (projectId === "gaz") {
+          return [
+            {
+              img: "gaz/11.png",
+              desc: "Интерьер гостиной: текстуры Substance Painter",
+            },
+            {
+              img: "gaz/22.png",
+              desc: "Экстерьер: окружение и Twinmotion",
+            },
+            {
+              img: "gaz/33.png",
+              desc: "Детальная визуализация материалов",
+            },
+          ];
+        } else if (projectId === "dveri") {
+          return [
+            {
+              img: "komnat/111.jpg",
+              desc: "Интерьер гостиной: текстуры Substance Painter",
+            },
+            {
+              img: "komnat/2222.jpg",
+              desc: "Экстерьер: окружение и Twinmotion",
+            },
+            {
+              img: "komnat/333.jpg",
+              desc: "Детальная визуализация материалов",
+            },
+          ];
+        } else if (projectId === "karet") {
+          return [
+            {
+              img: "karet/k1.png",
+              desc: "Интерьер гостиной: текстуры Substance Painter",
+            },
+            {
+              img: "karet/k12.jpg",
+              desc: "Экстерьер: окружение и Twinmotion",
+            },
+            {
+              img: "karet/k22.jpg",
+              desc: "Детальная визуализация материалов",
+            },
+          ];
+        } else {
+          return [
+            {
+              img: "sun_ya-hij-k-outside(1).jpg",
+              desc: "Реалистичный рендер окружения",
+            },
+          ];
+        }
+      }
+
+      const projects = [
+        {
+          id: "wireframe",
+          title: "3D-моделирование / Wireframe & UV",
+          description:
+            "Оптимизация высокополигональных моделей, UV-развертка, подготовка под визуализацию и игровые движки.",
+          tech: ["Blender", "RizomUV", "Substance Painter"],
+          previewType: "wireframe",
+          previewImage: "11.jpg",
+        },
+        {
+          id: "individual_house",
+          title:
+            "Курсовая работа: Индивидуальный жилой дом",
+          description:
+            "Полный цикл: BIM-модель в Revit, чертежи, 3D-визуализация, ландшафт. Проект с фасадами и разрезами.",
+          tech: ["Revit", "Twinmotion", "AutoCAD"],
+          previewType: "house_project",
+          previewImage: "indiv/Image1.png",
+        },
+        {
+          id: "interior_exterior",
+          title:
+            "Визуализация окружения (интерьер/экстерьер)",
+          description:
+            "Фотореалистичные сцены в Twinmotion, Unreal Engine 5. Текстурирование и динамическое освещение.",
+          tech: ["Twinmotion", "UE5", "Substance Painter"],
+          previewType: "interior",
+          previewImage: "sun_ya-hij-k-outside(1).jpg",
+        },
+        {
+          id: "gaz",
+          title: "Противогаз ГП-5М",
+          description:
+            "Оптимизированная модель, UV-развертка, подготовена под визуализацию и игровые движки.",
+          tech: ["Blender", "RizomUV", "Substance Painter"],
+          previewType: "wireframe",
+          previewImage: "gaz/11.png",
+        },
+        {
+          id: "dveri",
+          title: "Двери",
+          description:
+            "Оптимизированная модель, UV-развертка, подготовена под визуализацию и игровые движки.",
+          tech: ["Blender", "RizomUV", "Substance Painter"],
+          previewType: "wireframe",
+          previewImage: "komnat/111.jpg",
+        },
+        {
+          id: "karet",
+          title: "Королевская карета",
+          description:
+            "Оптимизированная модель, UV-развертка, подготовена под визуализацию и игровые движки.",
+          tech: ["Blender", "RizomUV", "Substance Painter"],
+          previewType: "wireframe",
+          previewImage: "karet/k1.png",
+        },
+      ];
+
+      // generate cards dynamic
+      const container =
+        document.getElementById("projectsGrid");
+      function renderCards() {
+        container.innerHTML = "";
+        projects.forEach((proj) => {
+          const previewUrl = proj.previewImage
+            ? proj.previewImage
+            : generatePreviewImage(
+                proj.previewType,
+                600,
+                340,
+              );
+          const card = document.createElement("div");
+          card.className = "project-card";
+          card.setAttribute("data-id", proj.id);
+          card.innerHTML = `
+                <div class="card-preview" style="background-image: url('${previewUrl}'); background-size: cover;">
+                    <div class="overlay-badge"><i class="fas fa-mouse-pointer"></i> нажмите для деталей</div>
+                </div>
+                <div class="card-info">
+                    <h3>${proj.title}</h3>
+                    <p>${proj.description}</p>
+                    <div class="tech-tags">
+                        ${proj.tech.map((t) => `<span>${t}</span>`).join("")}
+                    </div>
+                    <div class="click-hint"><i class="fas fa-images"></i> просмотр скриншотов проекта</div>
+                </div>
+            `;
+          card.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openModal(proj.id, proj.title);
+          });
+          container.appendChild(card);
+        });
+      }
+
+      const modal = document.getElementById("workModal");
+      const modalTitle =
+        document.getElementById("modalTitle");
+      const modalBody =
+        document.getElementById("modalBody");
+      const closeBtn =
+        document.getElementById("closeModalBtn");
+
+      function openModal(projectId, title) {
+        const screens = getScreenshotsForProject(projectId);
+        modalTitle.innerText = title + " —  галерея работ";
+        modalBody.innerHTML = "";
+        const galleryDiv = document.createElement("div");
+        galleryDiv.className = "screenshot-gallery";
+        screens.forEach((scr, idx) => {
+          const imgWrapper = document.createElement("div");
+          imgWrapper.style.width = "100%";
+          const img = document.createElement("img");
+          img.src = scr.img;
+          img.alt = scr.desc;
+          img.style.maxWidth = "100%";
+          img.style.borderRadius = "12px";
+          img.style.marginBottom = "6px";
+          const cap = document.createElement("div");
+          cap.className = "caption";
+          cap.innerHTML = `<i class="fas fa-camera"></i> ${scr.desc}`;
+          imgWrapper.appendChild(img);
+          imgWrapper.appendChild(cap);
+          galleryDiv.appendChild(imgWrapper);
+        });
+        modalBody.appendChild(galleryDiv);
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModalFunc() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      closeBtn.addEventListener("click", closeModalFunc);
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) closeModalFunc();
+      });
+
+      renderCards();
+
+      // also add keyboard ESC
+      document.addEventListener("keydown", (e) => {
+        if (
+          e.key === "Escape" &&
+          modal.style.display === "flex"
+        )
+          closeModalFunc();
+      });
+    </script>
+  </body>
+</html>
