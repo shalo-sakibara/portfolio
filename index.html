@@ -721,11 +721,11 @@
           return [
             {
               img: "11.jpg",
-              desc: "Wireframe-модель: оптимизация топологии, UV-развертка",
+              desc: "Припятское колесо обозрения: UV-развертка",
             },
             {
               img: "22.jpg",
-              desc: "Детализация сетки для realtime движков",
+              desc: "Подготовка под визуализацию и игровые движки",
             },
             {
               img: "whpng.png",
@@ -735,22 +735,26 @@
           return [
             {
               img: "sun_ya-hij-k-outside(1).jpg",
-              desc: "Интерьер гостиной: текстуры Substance Painter",
+              desc: "Фотореалистичная сцена в Blender",
             },
             {
               img: "sun_ya-house-inside(1).jpg",
-              desc: "Экстерьер: окружение и Twinmotion",
+              desc: "Текстурирование и динамическое освещение",
             },
             {
               img: "sun_ya-house-inside(4).jpg",
-              desc: "Детальная визуализация материалов",
+              desc: "UV-развертка и подготовка к визуализации",
             },
           ];
         } else if (projectId === "individual_house") {
           return [
             {
+              img: "indiv/Каурин_Ярослав_24ИС02_Вариант137_conv_1.jpg",
+              desc: "Курсовая работа: индивидуальный жилой дом",
+            },
+            {
               img: "indiv/Image1.png",
-              desc: "Курсовая работа: индивидуальный жилой дом (фасад)",
+              desc: "Курсовая работа: индивидуальный жилой дом",
             },
             {
               img: "indiv/изображение 1.png",
@@ -781,45 +785,45 @@
           return [
             {
               img: "gaz/11.png",
-              desc: "Интерьер гостиной: текстуры Substance Painter",
+              desc: "Фотореалистичная сцена в Blender",
             },
             {
               img: "gaz/22.png",
-              desc: "Экстерьер: окружение и Twinmotion",
+              desc: "Текстурирование и динамическое освещение",
             },
             {
               img: "gaz/33.png",
-              desc: "Детальная визуализация материалов",
+              desc: "UV-развертка и подготовка к визуализации",
             },
           ];
         } else if (projectId === "dveri") {
           return [
             {
               img: "komnat/111.jpg",
-              desc: "Интерьер гостиной: текстуры Substance Painter",
+              desc: "Фотореалистичная сцена в Blender",
             },
             {
               img: "komnat/2222.jpg",
-              desc: "Экстерьер: окружение и Twinmotion",
+              desc: "Текстурирование и динамическое освещение",
             },
             {
               img: "komnat/333.jpg",
-              desc: "Детальная визуализация материалов",
+              desc: "UV-развертка и подготовка к визуализации",
             },
           ];
         } else if (projectId === "karet") {
           return [
             {
               img: "karet/k1.png",
-              desc: "Интерьер гостиной: текстуры Substance Painter",
+              desc: "Фотореалистичная сцена в Blender",
             },
             {
               img: "karet/k12.jpg",
-              desc: "Экстерьер: окружение и Twinmotion",
+              desc: "Текстурирование и динамическое освещение",
             },
             {
               img: "karet/k22.jpg",
-              desc: "Детальная визуализация материалов",
+              desc: "UV-развертка и подготовка к визуализации",
             },
           ];
         } else {
@@ -835,9 +839,9 @@
       const projects = [
         {
           id: "wireframe",
-          title: "3D-моделирование / Wireframe & UV",
+          title: "Припятское колесо обозрения",
           description:
-            "Оптимизация высокополигональных моделей, UV-развертка, подготовка под визуализацию и игровые движки.",
+            "Оптимизированная модель, UV-развертка, подготовена под визуализацию и игровые движки.",
           tech: ["Blender", "RizomUV", "Substance Painter"],
           previewType: "wireframe",
           previewImage: "11.jpg",
@@ -848,7 +852,7 @@
             "Курсовая работа: Индивидуальный жилой дом",
           description:
             "Полный цикл: BIM-модель в Revit, чертежи, 3D-визуализация, ландшафт. Проект с фасадами и разрезами.",
-          tech: ["Revit", "Twinmotion", "AutoCAD"],
+          tech: ["Revit", "Twinmotion"],
           previewType: "house_project",
           previewImage: "indiv/Image1.png",
         },
@@ -857,8 +861,8 @@
           title:
             "Визуализация окружения (интерьер/экстерьер)",
           description:
-            "Фотореалистичные сцены в Twinmotion, Unreal Engine 5. Текстурирование и динамическое освещение.",
-          tech: ["Twinmotion", "UE5", "Substance Painter"],
+            "Фотореалистичная сцена в Blender. Текстурирование и динамическое освещение.",
+          tech: ["Blender", "Substance Painter"],
           previewType: "interior",
           previewImage: "sun_ya-hij-k-outside(1).jpg",
         },
@@ -866,8 +870,8 @@
           id: "gaz",
           title: "Противогаз ГП-5М",
           description:
-            "Оптимизированная модель, UV-развертка, подготовена под визуализацию и игровые движки.",
-          tech: ["Blender", "RizomUV", "Substance Painter"],
+            "Визуализация противогаза ГП-5М, UV-развертка.",
+          tech: ["Blender"],
           previewType: "wireframe",
           previewImage: "gaz/11.png",
         },
@@ -875,7 +879,7 @@
           id: "dveri",
           title: "Двери",
           description:
-            "Оптимизированная модель, UV-развертка, подготовена под визуализацию и игровые движки.",
+            "Демонстрация множества работ в одной сцене ,UV-развертка, подготовлена под визуализацию.",
           tech: ["Blender", "RizomUV", "Substance Painter"],
           previewType: "wireframe",
           previewImage: "komnat/111.jpg",
@@ -884,7 +888,7 @@
           id: "karet",
           title: "Королевская карета",
           description:
-            "Оптимизированная модель, UV-развертка, подготовена под визуализацию и игровые движки.",
+            "Визуализация интерьера , UV-развертка, подготовлена под визуализацию",
           tech: ["Blender", "RizomUV", "Substance Painter"],
           previewType: "wireframe",
           previewImage: "karet/k1.png",
